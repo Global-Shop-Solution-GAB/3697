@@ -1,0 +1,31 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+V.Local.sParameters.Declare(String)
+V.Local.sCustomer.Declare(String)
+
+F.Intrinsic.Control.If(V.Caller.Hook,=,14350)
+	V.Passed.000203.Set("New Order")
+F.Intrinsic.Control.Else
+'	F.Intrinsic.Debug.InvokeDebugger
+'	F.Intrinsic.Debug.Stop
+'	V.Local.sCustomer.Set("1050")
+	V.Local.sCustomer.Set(V.Passed.000002)
+'	F.Intrinsic.String.Concat("*!*ZDR*!*!*!N!*!",V.local.sCustomer,V.Local.sParameters)
+	F.Intrinsic.String.Concat("!*!N!*!",V.local.sCustomer,V.Local.sParameters)
+	F.Global.General.CallWrapperSync(200000,V.Local.sParameters)
+F.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+Program.Sub.Comments.Start
+${$0$}$ATG_3697_Cust_New_Order$}$JCT$}$4/5/2016
+${$1$}$$}$$}$0$}$14380$}$Script 3$}$4/5/2016 4:40:55 PM$}$(Program: AR0020GI; Screen: ARS002A1)
+
+Program.Sub.Comments.End
+
